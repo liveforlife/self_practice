@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app1">
+			<span v-html='rawHtml'></span>
+		</div>
+		<div id="app2">
+			<span>{{mess}}</span>
+			<span>{{mess}}</span>
+			<div v-once>
+				<span>{{mess}}</span>
+				<span>{{mess}}</span>
+			</div>
+			<button v-on:click="changeName">change Name</button>
+			<p>{{reverseMess}}</p>
+		</div>
+		<ul id="app3">
+			<template v-for="value in object">
+				<li>{{value}</li>
+				
+			</template>
+		</ul>
+		<script>
+			var app=new Vue({
+				el:"#app1",
+				data:{
+					rawHtml:'<span style="color:red">New Yorck</span>',
+				}
+			})
+			var app= new Vue({
+				el:"#app2",
+				data:{
+					mess:"once blind"
+				},
+				methods:{
+					changeName:function(){
+						this.mess="second blind datas";
+					}
+				},
+				computed:{
+					reverseMess:function(){
+						return this.mess.split('').reverse().join('');
+					}
+				}
+			})
+			var vm=new Vue({
+				el:"#app3",
+				data:{
+					object:{
+						msg:"1",
+						msg:"2",
+						msg:"3"
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

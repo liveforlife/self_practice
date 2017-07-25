@@ -1,0 +1,36 @@
+.tli {
+  background-color: #4a729c;
+  height: 5px;
+  color: 'red';
+}
+#header {
+  background-color: #4a729c;
+}
+#content .opr {
+  color: #5B83AD;
+  height: 5px;
+}
+#content p {
+  color: #4a729c;
+}
+#content:hover {
+  height: 50px;
+}
+#footer p {
+  background-color: 'white';
+}
+.express,
+.expressName {
+  color: #5B83AD;
+}
+.line,
+.express,
+.expressName {
+  background-color: #4a729c;
+}
+.a.class,
+.class.a,
+.class > .a {
+  color: #4a729c;
+}
+/*# sourceMappingURL=new_file.css.map */

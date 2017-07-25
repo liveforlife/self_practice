@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html;">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no,email=no" name="format-detection">
+	<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no; email=no">
+	<meta name="x5-fullscreen" content="true">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<link href="../../css/swiper.min.css" />
+	<link href="../../css/animate.min.css" />
+	
+	<style>
+		html, body {
+        position: relative;
+        height: 100%;
+    }
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .music{position: absolute;z-index: 999;top: 5px; right: 10px;}
+    .s1{background:url(../../images/test/s1.jpg)no-repeat;background-size: cover;}
+     .s2{background:url(../../images/test/s2.jpg)no-repeat;background-size: cover;}
+      .s3{background:url(../../images/test/s3.jpg)no-repeat;background-size: cover;}
+       .s4{background:url(../../images/test/s4.jpg)no-repeat;background-size: cover;}
+        .s5{background:url(../../images/test/s5.jpg)no-repeat;background-size: cover;}
+        
+	</style>
+	</head>
+	<body>
+		
+		<div id="" class="swiper-container">
+			 <img class="music music-play" src="../../images/test/music2.png">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<section class="s1" style="width: 100%;height: 100%;"> </section>
+				</div>
+				<div class="swiper-slide">
+					<section class="s2" style="width: 100%;height: 100%;"></section>
+				</div>
+				<div class="swiper-slide">
+					<section class="s3" style="width: 100%;height: 100%;"></section>
+				</div>
+				<div class="swiper-slide">
+					<section class="s4" style="width: 100%;height: 100%;"></section>
+				</div>
+				<div class="swiper-slide">
+					<section class="s5" style="width: 100%;height: 100%;"></section>
+				</div>
+				
+			</div>
+		</div>
+		<audio id="audios" src="../../mp3/video20170725.mp3" loop="loop" autoplay="autoplay"></audio>
+<script src="../../js/swiper.animate.min.js"></script>
+<script src="../../js/swiper.min.js"></script>
+<script src="../../js/jquery-1.9.1.min.js"></script>
+<script>
+	
+ var swiper = new Swiper('.swiper-container', {
+    pagination: '.swiper-pagination',
+    paginationClickable: true,
+    direction: 'vertical',
+    onInit: function(swiper){
+	   swiperAnimateCache(swiper);
+	   swiperAnimate(swiper);
+	},
+   	onSlideChangeEnd: function(swiper){
+		swiperAnimate(swiper);
+    },
+	onTransitionEnd: function(swiper){
+		swiperAnimate(swiper);
+    },
+});
+	/*var audio=document.getElementById('audios');
+	 setTimeout(function(){
+	 	audio.play();
+},100)
+ document.addEventListener('DOMContentLoaded', function () {
+    function audioAutoPlay() {
+        var audio = document.getElementById("audios");
+        audio.play();
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+        }, false);
+        $(".music").on("touchstart",function(){
+            if(!music.paused){
+                music.pause();
+                $(this).removeClass("music-play")
+            }else{
+                music.play();
+                $(this).addClass("music-play")
+            }
+        });
+    }
+    audioAutoPlay();
+});*/
+</script>
+	</body>
+</html>

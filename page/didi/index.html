@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script src="../../js/jquery-1.9.1.min.js"></script>
+		<script>
+			var url="http://172.20.11.253:8080";
+			window.onmessage=function(e){
+				//if(e.origin != url)return;
+				var data=JSON.parse(e.data);
+				switch(data.method){
+					case 'set':
+						localStorage.setItem(data.key,JSON.stringify(data.data));
+						break;
+					case 'get':
+						var keyData=localStorage.getItem(data.key);
+						window.parent.postMessage(keyData,'http://172.20.11.253:8080/new_file.html');
+						console.log('3');
+						break;
+					case 'remove':
+						localStorage.removeItem(data.key);
+						break;
+				}
+				console.log(e.data);
+			}
+		</script>
+	</head>
+	<body>
+		<header style="padding: 20px 15%;">
+			<div style="display: inline-flex;justify-content:space-between;width: 100%;">
+				<div style="">
+					<!--<img src="../../img/didi/logo.jpg" style="margin-right:30px ;"/>-->
+					<a href="index.html" style="width: 233px;height: 33px;margin-top: -10px;;float: left;background: url(../../img/didi/logo.jpg) 0 center no-repeat;display: inline-block;margin-right: 30px;"></a>
+					<a href="index.html" style="text-decoration: none;">
+						<span style="color: #ff8900;margin-left: 60px;margin-right: 40px;">首页</span>
+					</a>
+					<a href="indro.html" style="text-decoration: none;">
+						<span style="color: #858585;">联系我们</span>
+					</a>
+				</div>
+				<div>
+					<span>登陆</span>
+					|<span>注册</span>
+				</div>
+			</div>
+		</header>
+		<div >
+			<div style="display: block;background: #ddd url(../../img/didi/main_bg.jpg) 0 center no-repeat;padding: 20px 260px;">
+				<div style="width: 1100px;overflow: hidden;width: 1050px;;">
+					<div style="width: 53000px;">
+						<div id="banner"  style="width:1050px;display: inline-flex;margin-left:0px">
+							<div>
+								<h1 style="margin-top: 80px;">滴滴出行正式上线</h1>
+								<h2 style="margin-top: 50px;">接入ＳＤＫ，将滴滴出行集成到自己的应用中</h2>
+								<h2>轻松构建打车服务，为你的用户提供一段美好的旅程</h2>
+								<span style="background-color: #ff8900;color: #FFF;display: inline-block;font-size: 28px;text-align: center;padding:15px 80px;border-radius: 10px;">了解更多>></span>
+							</div>
+							<div>
+								<img src="../../img/didi/main.png" />
+							</div>
+						</div>
+						<div style="width:1050px;display: inline-flex;">
+							<div>
+								<h1 style="margin-top: 80px;">滴滴出行正式上线</h1>
+								<h2 style="margin-top: 50px;">接入ＳＤＫ</h2>
+								<h2>轻松构建打车服务，为你的用户提供一段美好的旅程</h2>
+								<span style="background-color: #ff8900;color: #FFF;display: inline-block;font-size: 28px;text-align: center;padding:15px 80px;border-radius: 10px;">了解更多>></span>
+							</div>
+							<div>
+								<img src="../../img/didi/banner2_new.png"/>
+							</div>
+						</div>
+						<div style="width:1050px;display: inline-flex;">
+							<div>
+								<h1 style="margin-top: 80px;">滴滴出行正式上线</h1>
+								<h2 style="margin-top: 50px;">接入ＳＤＫ，将滴滴出行集成到自己的应用中</h2>
+								<h2>轻松构建打车服务，为你的用户提供一段美好的旅程</h2>
+								<span style="background-color: #ff8900;color: #FFF;display: inline-block;font-size: 28px;text-align: center;padding:15px 80px;border-radius: 10px;">了解更多>></span>
+							</div>
+							<div>
+								<img src="../../img/didi/banner3.jpg"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div >
+			<div style="padding: 20px 15%;">
+				<img src="../../img/didi/step1.jpg" style="width: 100%;"/>
+			</div>
+			<div style="background-color: #fafafa;padding: 20px 15%;">
+				<img src="../../img/didi/step2.jpg" style="width: 100%;"/>
+			</div>
+			<div style="padding: 20px 15%;"> 
+				<img src="../../img/didi/step3.jpg" style="width: 100%;"/>
+			</div>
+		</div>
+		<footer style="border-top: 1px solid #e1e1e1;margin: 0px 15%;">  
+			<p style="text-align: center;color: #888888;margin: 20px 0px;">巴拉巴拉巴拉巴拉吧啦吧啦吧啦吧啦巴拉巴拉巴拉吧啦吧啦吧啦吧啦吧啦吧啦吧啦吧啦</p>
+		</footer>
+		<script>
+			var banner=document.getElementById('banner');
+			 setInterval(function(){
+				var length=parseInt(banner.style.marginLeft);
+				if(length==0){
+					$("#banner").stop().animate({
+					'marginLeft':-1050
+				},500);
+					console.log("2");
+				}else if(length==-1050){
+					$("#banner").stop().animate({
+					'marginLeft':-2100
+				},500);
+					console.log("3");
+				}else{
+					$("#banner").stop().animate({
+					'marginLeft':0
+				},500);
+				}
+			 },3000);
+			function Leftgo(){
+				
+				
+			}
+			/*var bod=window.parent.document.body;
+		console.log(bod);*/
+		window.onhashchange=checkMassage;
+		function checkMassage(){
+			var massage=window.location.hash;
+			console.log(massage);
+		}
+		
+		</script>
+	</body>
+</html>

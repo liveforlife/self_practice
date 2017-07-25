@@ -1,0 +1,46 @@
+@nice-height:#5B83AD;
+@light:@nice-height - #111;
+@bo-height:5px;
+@var:'red';
+@name:tli;
+
+.@{name}{
+    background-color: @light;
+    height: @bo-height;
+    color: @var;
+}
+
+#header{background-color: @light;}
+
+#content{
+    .opr{
+        color: @nice-height;
+        height: @bo-height;
+    }
+    p{
+        color: @light;
+    }
+    &:hover{
+        height: @bo-height*10;
+    }
+}
+
+#footer{
+    @var:'white';
+    p{
+        background-color:@var;
+    }
+}
+    .express,.expressName{
+        &:extend(.line);
+        color: @nice-height;
+    }
+    .line{
+        background-color: @light;
+    }
+    .a.class,
+.class.a,
+.class > .a {
+  color: @light;
+}
+.test:extend(.class) {}

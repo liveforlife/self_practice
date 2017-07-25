@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<p>
+				{{message}}
+			</p>
+			<button v-on:click="revers">revers massage</button>
+		</div>
+		<div id="app_2">
+			<span v-bind:title="message">
+				Hover you mouse over me for a few second to see my dynamecailly bound title!
+			</span>
+		</div>
+		<div id="app_3">
+			<span v-if="seen">you can see me </span>
+		</div>
+		<div id="app_4">
+			<li v-for="todo in trodos">
+				{{todo.text}}
+			</li>
+		</div>
+		<script>
+			var app=new Vue({
+				el:"#app",
+				data:{
+					message:"hello vue!"
+				},
+				methods:{
+					revers:function(){
+						this.message=this.message.split('').reverse().join('')
+					}
+				}
+			});
+			var app=new Vue({
+				el:"#app_2",
+				data:{
+					message:"you loaded this page on"+new Date()
+				},
+				el:"#app_3",
+				data:{
+					seen:false
+				},
+				el:"#app_4",
+				data:{
+					trodos:[
+						{text:'Learn in JavaScript'},
+						{text:'Learn Vue'},
+						{text:'Build someone awesome'}
+					]
+				},
+			})
+			
+		</script>
+	</body>
+</html>
