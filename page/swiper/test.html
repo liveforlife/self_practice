@@ -39,13 +39,13 @@ html,body{
         height: 100%;
     }
   
-    .music{position: absolute;z-index: 999;top: 5px; right: 10px;}
+    .music{position: absolute;z-index: 999;top: 5px; right: 10px;-webkit-animation:music 1.5s linear infinite;animation:music 1.5s linear infinite;}
     .s1{background:url(../../images/test/s1.jpg)no-repeat;background-size: cover;}
      .s2{background:url(../../images/test/s2.jpg)no-repeat;background-size: cover;}
       .s3{background:url(../../images/test/s3.jpg)no-repeat;background-size: cover;}
        .s4{background:url(../../images/test/s4.jpg)no-repeat;background-size: cover;}
         .s5{background:url(../../images/test/s5.jpg)no-repeat;background-size: cover;}
-    @-webkit-keyframes start {
+@-webkit-keyframes start {
 	0%,30% {opacity: 0;-webkit-transform: translate(0,10px);}
 	60% {opacity: 1;-webkit-transform: translate(0,0);}
 	100% {opacity: 0;-webkit-transform: translate(0,-8px);}
@@ -60,16 +60,49 @@ html,body{
 	60% {opacity: 1;transform: translate(0,0);}
 	100% {opacity: 0;transform: translate(0,-8px);}
 }
-
+@-webkit-keyframes music{
+  0%{-webkit-transform:rotate(0);transform:rotate(0);}
+  100%{-webkit-transform:rotate(360deg);transform:rotate(360deg);}
+}
+@-webkit-keyframes smallerBig{
+  0%{-webkit-transform:scale(1)}
+  100%{-webkit-transform:scale(1.5)}
+}
+@-webkit-keyframes smallerBig2{
+  0%{-webkit-transform:scale(1)}
+  100%{-webkit-transform:scale(1.2);opacity:0;}
+}
 #array{
 	position:absolute;z-index:999;-webkit-animation: start 1.5s infinite ease-in-out;
 }    
+.loadwrap{  width: 100%;height: 100%;background:url(../../images/test/bg.jpg) no-repeat;position: absolute;z-index: 99;background-size: cover;}
+.tabBox .hd{ height:40px; line-height:40px; padding:0 10px; font-size:20px; background:#f4f4f4; border-bottom:1px solid #F5AB38; position:relative;  }
+.tabBox .hd ul{ position:absolute; height:41px; top:0; overflow:hidden;  }
+.tabBox .hd ul li{ float:left; padding:0 10px; color:#666;  }
+.tabBox .hd ul .on{ border:2px solid #F5AB38; border-bottom-color:#fff; background:#fff; color:#CF7F21;   }
+.tabBox .bd ul{ padding:10px 0 10px 10px; text-align: center;width: 100%; }
+.tabBox .bd li{ height:150px; line-height:150px; list-style: none;  }
+.tabBox .bd li a{ color:#666;  }
 	</style>
+	
 	</head>
 	<body>
-		
+		<div class="loadwrap" >
+			<div id="caseBlanche" style="text-align: center;margin-top:30% ;">
+			    <div id="rond">
+			        <div id="test"></div>
+			    </div>
+			    <div id="load">
+			        <!--<i>Zhaopin.com</i>-->
+			        <i><img src="../../images/test/zhaopin.png" style="width: 40%;"></i> 
+			    </div>
+			    <div class="loading" style="margin-top: 30px;"><span>0</span>%</div>
+				<img src="../../images/test/l1.png" alt="" class="l1" style="width: 40%;margin-top: 40px;">
+			</div>
+		</div>
+
 		<div id="" class="swiper-container">
-			 <img class="music music-play" src="../../images/test/music2.png">
+			 <img class="music music-play" src="../../images/test/music2.png" style="width: 20px">
 			<img src="../../images/test/arrow.png" style="width:20px;height:15px; top:460px; left:150px;" id="array" class="resize"> 
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
@@ -84,14 +117,20 @@ html,body{
 							</div>
 							<div>
 								<div style="position: absolute;text-align: center;">
-									<img src="../../images/test/p110.png" style="width: 90%;position: relative;"/>
-									<img src="../../images/test/p104.png" style="width: 50%;position: absolute;top: 0px;left: 25%;"/>
-									<img src="../../images/test/p105.png" style="width: 60px;height: 60px;position: absolute;top: 0px;left: 0px;"/>
-									<img src="../../images/test/p106.png" style="width: 60px;height: 60px;position: absolute;top: 0px;left: 0px;"/>
-									
+									<img src="../../images/test/p110.png" 
+										swiper-animate-effect="zoomIn" class="ani" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s"
+										style="width: 80%;position: relative;-webkit-animation:music 6s linear infinite;animation:music 6s linear 1s infinite;"/>
+									<img src="../../images/test/p104.png" 
+										style="width: 30%;position: absolute;top: 15%;left: 25%;-webkit-animation:smallerBig 6s linear infinite;animation:smallerBig 6s linear 1s infinite;"/>
+									<img src="../../images/test/p105.png"
+										 style="width: 80%;position: absolute;top: 0%;left:10%;-webkit-animation:smallerBig2 6s linear infinite;animation:smallerBig2 6s linear 1s infinite;"/>
+									<img src="../../images/test/p106.png" class="ani" style="width: 20%;position: absolute;top:15%;left: 40%;"
+										swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s"/>
+									<img src="../../images/test/p107.png" class="ani" style="width: 60%;position: absolute;top:10%;left: 20%;"
+										swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s"/>
 								</div> 
 							</div>
-							<div style="text-align: center;position: fixed;bottom: 10%">
+							<div style="text-align: center;position: fixed;bottom: 5%">
 								<div style="text-align: center;">
 									<img src="../../images/test/p108.png" class="ani" style="width: 90%;position: relative;"
 										swiper-animate-effect="bounceIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.7s"/>
@@ -129,7 +168,7 @@ html,body{
 							<img src="../../images/test/p301.png" class="ani" style="width: 20%;position: absolute;right: 5%;"
 								swiper-animate-effect="bounceIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.4s"	 />
 						</div>
-						<div style="position: absolute;right: 20px;width: 20%;">
+						<div style="position: absolute;right: 20px;width: 30%;">
 							<img src="../../images/test/p303.png" class="ani" style="width: 100%;" 
 								swiper-animate-effect="bounceIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.4s"	/>
 							<img src="../../images/test/p304.png" class="ani" style="width: 100%;position: absolute;top: 0px;" 
@@ -138,20 +177,150 @@ html,body{
 					</section>
 				</div>
 				<div class="swiper-slide">
-					<section class="s4" style="width: 100%;height: 100%;"></section>
+					<section class="s4" style="width: 100%;height: 100%;">
+						<div style="position: absolute;margin-top: 10%;">
+							<img src="../../images/test/p401.png" class="ani" style="width: 15%;position: absolute;right: 5%;" 
+								swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.6s" />
+							<img src="../../images/test/p402.png" class="ani" style="width: 90%;position: relative;left: 5%;" 
+								swiper-animate-effect="bounceIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.4s"/>
+							<img src="../../images/test/p403.png" class="ani" style="width: 80%;position:absolute;top: 0px;left: 5%;"
+								 swiper-animate-effect="bounceIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.4s"/>
+							<img src="../../images/test/p404.png" class="ani" style="width: 90%;position: absolute;top: 0px;left: 5%;"
+								 swiper-animate-effect="bounceIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.4s"/>
+							<img src="../../images/test/p405.png" class="ani" style="width: 80%;position: absolute;top: 0px;left: 5%;"
+								 swiper-animate-effect="bounceIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.4s"/>
+						</div>
+						<div id="leftTabBox" class="tabBox ani" style="padding-top: 50%;" 
+							swiper-animate-effect="bounceIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.4s">
+							<div class="bd " >
+							        <ul>
+							            <li><img src="../../images/test/p406-1.png" style="width: 75%;"></li>
+							        </ul>
+							        <ul>
+							            <li><img src="../../images/test/p406-2.png" style="width: 75%;"></li>
+							        </ul>
+							        <ul>
+							            <li><img src="../../images/test/p406-3.png" style="width: 75%;"></li>
+							        </ul>
+							</div>
+						</div>
+						<div id="leftTabBox1" class="tabBox ani"  
+							swiper-animate-effect="bounceIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.4s">
+							<div class="bd">
+							        <ul>
+							            <li><img src="../../images/test/p407-1.png" style="width: 75%;"></li>
+							        </ul>
+							        <ul>
+							            <li><img src="../../images/test/p407-2.png" style="width: 75%;"></li>
+							        </ul>
+							        <ul>
+							            <li><img src="../../images/test/p407-3.png" style="width: 75%;"></li>
+							        </ul>
+							</div>
+						</div>
+						<script src="../../js/TouchSlide.1.1.js"></script>
+					    <script>
+					    	 TouchSlide({ slideCell:"#leftTabBox",autoPlay:true,  effect:"leftLoop", });
+					    	 TouchSlide({ slideCell:"#leftTabBox1",autoPlay:true,  effect:"leftLoop", });
+					    </script>
+					</section>
 				</div>
-				<div class="swiper-slide">
+				<!--<div class="swiper-slide">
 					<section class="s5" style="width: 100%;height: 100%;"></section>
-				</div>
+				</div>-->
 				
 			</div>
 			
 		</div>
-		<!--<audio id="audios" src="../../mp3/video20170725.mp3" loop="loop" autoplay="autoplay"></audio>-->
+		<audio id="audios" src="../../mp3/video20170725.mp3" loop="loop" autoplay="autoplay"></audio>
 <script src="../../js/swiper.min.js"></script>
 <script src="../../js/swiper.animate.min.js"></script>
 <script src="../../js/jquery-1.9.1.min.js"></script>
 <script>
+	 var images =[],count = 0;
+        
+     $('html,body').find('img').each(function(i) {
+         images[i]=$(this).attr('src');
+     });
+     for (var i = 0; i < images.length; i++) {
+         img = new Image;
+         img.src = images[i];
+		 img.onload = function() {                                    
+            count++;
+	        var per = Math.floor(count/images.length*100);
+	        $('.loading span').text(per);             
+            if(count==images.length)
+            {
+            	setTimeout(begin,500);
+                var idsContainer = $("section");
+                var len = idsContainer.length;
+                var h=$(window).height();
+                var w=$(window).width();
+                for(var index = 0; index < len; index++){
+                    var $container = $(idsContainer[index]);
+                    $container.css({"height":h,"width":w})
+                }
+                function begin(){
+                	console.log('222');
+	                $('.loadwrap').fadeOut(100,function(){
+	                    $('.cont section').eq(0).addClass('cur');
+	                });
+	                 var swiper = new Swiper('.swiper-container', {
+       					
+				        //paginationClickable: true,
+				       // direction: 'vertical',
+						 loop:'true',
+                         onSlideChangeEnd: function(swiper){
+                             if(swiper.activeIndex==14){
+                                 $(".arr").hide();
+                             }else{
+                                 $(".arr").show();
+                             }
+                         },
+                         direction : 'vertical',
+						   //pagination: '.swiper-pagination',
+						  //virtualTranslate : true,
+						   mousewheelControl : true,
+						   onInit: function(swiper){
+						   swiperAnimateCache(swiper);
+						   swiperAnimate(swiper);
+							  },
+						   onSlideChangeEnd: function(swiper){
+							swiperAnimate(swiper);
+						    },
+							onTransitionEnd: function(swiper){
+							swiperAnimate(swiper);
+						    },
+							watchSlidesProgress: true,
+						      onProgress: function(swiper){
+						        for (var i = 0; i < swiper.slides.length; i++){
+						          var slide = swiper.slides[i];
+						          var progress = slide.progress;
+						          var translate = progress*swiper.height/4;  
+								  scale = 1 - Math.min(Math.abs(progress * 0.5), 1);
+						          var opacity = 1 - Math.min(Math.abs(progress/2),0.5);
+						          slide.style.opacity = opacity;
+								  es = slide.style;
+								  es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform = 'translate3d(0,'+translate+'px,-'+translate+'px) scaleY(' + scale + ')';
+						
+						        }
+						      },
+							   onSetTransition: function(swiper, speed) {
+						        for (var i = 0; i < swiper.slides.length; i++){
+						          es = swiper.slides[i].style;
+								  es.webkitTransitionDuration = es.MsTransitionDuration = es.msTransitionDuration = es.MozTransitionDuration = es.OTransitionDuration = es.transitionDuration = speed + 'ms';
+						
+						        }
+						      },
+				    });
+            	}
+            }
+        }
+         
+     };
+</script>
+<script>
+
 	scaleW=window.innerWidth/320;
 scaleH=window.innerHeight/480;
 var resizes = document.querySelectorAll('.resize');
@@ -161,7 +330,7 @@ var resizes = document.querySelectorAll('.resize');
 		   resizes[j].style.top=parseInt(resizes[j].style.top)*scaleH+'px';
 		   resizes[j].style.left=parseInt(resizes[j].style.left)*scaleW+'px'; 
           }
- var mySwiper = new Swiper ('.swiper-container', {
+ /*var mySwiper = new Swiper ('.swiper-container', {
    direction : 'vertical',
    //pagination: '.swiper-pagination',
   //virtualTranslate : true,
@@ -197,10 +366,10 @@ var resizes = document.querySelectorAll('.resize');
 
         }
       },
-	   })  
-	/*var audio=document.getElementById('audios');
+	   })  */
+	var music=document.getElementById('audios');
 	 setTimeout(function(){
-	 	audio.play();
+	 	music.play();
 },100)
  document.addEventListener('DOMContentLoaded', function () {
     function audioAutoPlay() {
@@ -220,7 +389,7 @@ var resizes = document.querySelectorAll('.resize');
         });
     }
     audioAutoPlay();
-});*/
+});
 </script>
 	</body>
 </html>
